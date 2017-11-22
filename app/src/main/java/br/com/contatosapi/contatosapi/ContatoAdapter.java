@@ -40,7 +40,7 @@ public class ContatoAdapter extends ArrayAdapter<Contato> {
         ImageView img_foto = v.findViewById(R.id.img_contato);
 
         Picasso.with(getContext())
-                .load("http://10.0.2.2/inf3m20172/"+item.getFoto())
+                .load("http://10.0.2.2/API/"+item.getFoto())
                 .into(img_foto);
 
         txt_nome.setText(item.getNome());

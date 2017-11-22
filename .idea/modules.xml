@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/ContatosAPI.iml" filepath="$PROJECT_DIR$/ContatosAPI.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ListaApi.iml" filepath="$PROJECT_DIR$/ListaApi.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>

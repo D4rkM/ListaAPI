@@ -1,5 +1,6 @@
 package br.com.contatosapi.contatosapi;
 
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -33,8 +34,10 @@ public class MainActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+//                Snackbar.make(view, "Adicione um novo Contato", Snackbar.LENGTH_LONG)
+//                       .setAction("Action", null).show();
+
+                startActivity(new Intent(MainActivity.this, InserirActivity.class));
             }
         });
 
@@ -60,10 +63,11 @@ public class MainActivity extends AppCompatActivity {
             protected Void doInBackground(Void... voids) {
 
                 //------Usando ip da maquina -- quando for usar outra maquina tem que ficar trocando de maquina
-                String retornoJson = Http.get("http://10.107.134.17/inf3m20172/selecionar.php");
+                //String retornoJson = Http.get("http://10.107.134.17/inf3m20172/selecionar.php"); ==== OUTRA SALA
+                String retornoJson = Http.get("http://10.107.144.29/API/selecionar.php");
 
                 //Usando ip local do celular -- Não funciona quando for usar em servidores de hospedagem
-                //String retornoJson = Http.get("http://10.0.0.2/inf3m20172/selecionar.php");
+                //String retornoJson = Http.get("http://10.0.0.2/API/selecionar.php");
                 Log.d("CHEGOU", retornoJson);
 
                 //Pega objetos do array json
@@ -73,7 +77,7 @@ public class MainActivity extends AppCompatActivity {
                     for (int i = 0; i < jsonArray.length(); i++ ){
                         JSONObject item = jsonArray.getJSONObject(i);
                         Contato c = Contato.create(
-                         item.getString("nome"), item.getString("telefone"), item.getString("foto")
+                         item.getString("nome"), item.getString("telefone"), item.getString("imagem")
                         );
                         lstContatos.add(c);
                     }
